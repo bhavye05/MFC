@@ -1,0 +1,25 @@
+import numpy as np
+
+print("Enter vector dimension:")
+n = int(input())
+
+print("Enter 3 vectors:")
+u1 = np.array(list(map(float, input().split())))
+u2 = np.array(list(map(float, input().split())))
+u3 = np.array(list(map(float, input().split())))
+
+u1 = u1
+
+u2 = u2 - (np.dot(u2, u1) / np.dot(u1, u1)) * u1
+
+u3 = u3 - (np.dot(u3, u1) / np.dot(u1, u1)) * u1 \
+         - (np.dot(u3, u2) / np.dot(u2, u2)) * u2
+
+e1 = u1 / np.linalg.norm(u1)
+e2 = u2 / np.linalg.norm(u2)
+e3 = u3 / np.linalg.norm(u3)
+
+print("\nOrthonormal basis:")
+print("e1 =", np.round(e1, 4))
+print("e2 =", np.round(e2, 4))
+print("e3 =", np.round(e3, 4))
