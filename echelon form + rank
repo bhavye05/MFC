@@ -1,14 +1,10 @@
-import numpy as np
+import sympy as sp
 
-r = int(input("Rows: "))
-c = int(input("Cols: "))
+r = int(input('Rows: '))
+c = int(input('Columns: '))
+print('Enter elements row by row:')
+mat = [list(map(float, input().split())) for i in range(r)]
 
-vals = []
-for i in range(r):
-    vals.append(list(map(float, input().split())))
-
-A = np.array(vals)
-e = np.linalg.matrix_rank(A)
-
-print("Echelon form:\n", A)
-print("Rank =", e)
+M = sp.Matrix(mat)
+print('Echelon form:\n', M.echelon_form())
+print('Rank:', M.rank())
