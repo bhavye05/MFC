@@ -1,0 +1,17 @@
+import sympy as sp
+
+x, y, z = sp.symbols('x y z')
+
+P = input("P(x,y,z): ").strip() or "y*z"
+Q = input("Q(x,y,z): ").strip() or "z*x"
+R = input("R(x,y,z): ").strip() or "x*y"
+
+P = sp.sympify(P)
+Q = sp.sympify(Q)
+R = sp.sympify(R)
+
+cx = sp.diff(R, y) - sp.diff(Q, z)
+cy = sp.diff(P, z) - sp.diff(R, x)
+cz = sp.diff(Q, x) - sp.diff(P, y)
+
+print("\nCurl = <", cx, ",", cy, ",", cz, ">")
