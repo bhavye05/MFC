@@ -1,21 +1,36 @@
 import numpy as np
 
 r = int(input("Rows: "))
-A = []
+c = int(input("Cols: "))
 
+a = []
+print("Enter rows:")
 for i in range(r):
-    A.append(list(map(float, input().split())))
+    a.append(list(map(float, input().split())))
 
-A = np.array(A)
+A = np.array(a)
+
 print("Matrix:\n", A)
 
-det = np.linalg.det(A)
-print("Determinant =", det)
+# determinant
+try:
+    det = np.linalg.det(A)
+    print("Determinant:", det)
+except:
+    print("Determinant not possible")
 
-if det != 0:
-    adj = np.linalg.inv(A).T * det
+# if invertible
+if A.shape[0] == A.shape[1] and det != 0:
     inv = np.linalg.inv(A)
-    print("Adjoint:\n", adj)
     print("Inverse:\n", inv)
+
+    trans = A.T
+    print("Transpose:\n", trans)
+
+    adj = det * inv
+    cof = adj.T
+
+    print("Cofactor:\n", cof)
+    print("Adjoint:\n", adj)
 else:
     print("Inverse does not exist.")
