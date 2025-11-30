@@ -1,0 +1,14 @@
+import numpy as np
+
+r = int(input("Rows: "))
+c = int(input("Cols: "))
+
+vals = []
+for i in range(r):
+    vals.append(list(map(float, input().split())))
+
+A = np.array(vals)
+e = np.linalg.matrix_rank(A)
+
+print("Echelon form:\n", A)
+print("Rank =", e)
