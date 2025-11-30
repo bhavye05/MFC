@@ -1,0 +1,34 @@
+import sympy as sp
+
+r = int(input("Rows: "))
+c = int(input("Cols: "))
+
+mat = []
+print("Enter matrix rows:")
+for i in range(r):
+    mat.append(list(map(float, input().split())))
+
+A = sp.Matrix(mat)
+
+print("\nMatrix A:")
+sp.pprint(A)
+
+print("\nColumn Space:")
+for v in A.columnspace():
+    sp.pprint(v)
+    print()
+
+print("Row Space:")
+for v in A.rowspace():
+    sp.pprint(v)
+    print()
+
+print("Null Space:")
+for v in A.nullspace():
+    sp.pprint(v)
+    print()
+
+print("Left Null Space:")
+for v in A.T.nullspace():
+    sp.pprint(v)
+    print()
