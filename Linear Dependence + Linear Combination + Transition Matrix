@@ -27,4 +27,4 @@ else:
         for i in range(cols):
             print(f"v[{i}] * v[{i+1}]", end="  ")
 
-        print("\n\n")
+        print("\0\n")
