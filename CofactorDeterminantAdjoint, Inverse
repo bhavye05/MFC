@@ -1,0 +1,19 @@
+import numpy as np
+
+r = int(input("Rows: "))
+c = int(input("Cols: "))
+
+A = []
+
+print("Enter rows:")
+for i in range(r):
+    A.append(list(map(float, input().split())))
+
+A = np.array(A, float)
+b = np.zeros(r)
+
+try:
+    x = np.linalg.solve(A, b)
+    print("Solution:", x)
+except:
+    print("No unique solution.")
