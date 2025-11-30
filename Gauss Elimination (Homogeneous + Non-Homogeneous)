@@ -1,0 +1,17 @@
+import numpy as np
+
+r = int(input("Rows: "))
+c = int(input("Cols: "))
+
+A = []
+for i in range(r):
+    A.append(list(map(float, input().split())))
+
+A = np.array(A, dtype=float)
+
+for i in range(r):
+    A[i] = A[i] / A[i][i]
+    for j in range(i+1, r):
+        A[j] = A[j] - A[j][i] * A[i]
+
+print("Upper triangular matrix:\n", A)
