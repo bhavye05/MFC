@@ -4,14 +4,16 @@ r = int(input("Rows: "))
 c = int(input("Cols: "))
 
 A = []
+
+print("Enter rows:")
 for i in range(r):
     A.append(list(map(float, input().split())))
 
-A = np.array(A, dtype=float)
+A = np.array(A, float)
+b = np.zeros(r)
 
-for i in range(r):
-    A[i] = A[i] / A[i][i]
-    for j in range(i+1, r):
-        A[j] = A[j] - A[j][i] * A[i]
-
-print("Upper triangular matrix:\n", A)
+try:
+    x = np.linalg.solve(A, b)
+    print("Solution:", x)
+except:
+    print("No unique solution.")
